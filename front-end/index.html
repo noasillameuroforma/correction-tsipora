@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chatbot Intents — Mini Front</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 0; background: #0b1020; color: #e9eefc; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 24px; }
+    .card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.10); border-radius: 16px; padding: 18px; }
+    h1 { font-size: 20px; margin: 0 0 12px; }
+    .row { display: flex; gap: 12px; margin-top: 12px; }
+    input, button { border-radius: 12px; border: 1px solid rgba(255,255,255,.15); }
+    input {
+      flex: 1; padding: 12px 14px; background: rgba(0,0,0,.25); color: #e9eefc;
+      outline: none;
+    }
+    button {
+      padding: 12px 14px; background: #2b66ff; color: white; cursor: pointer; font-weight: 600;
+    }
+    button:disabled { opacity: .6; cursor: not-allowed; }
+    .chat { margin-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .msg { padding: 12px 14px; border-radius: 14px; width: fit-content; max-width: 100%; }
+    .me { background: rgba(255,255,255,.08); margin-left: auto; }
+    .bot { background: rgba(43,102,255,.18); border: 1px solid rgba(43,102,255,.35); }
+    .meta { margin-top: 6px; font-size: 12px; opacity: .85; }
+    .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,.10); margin-right: 6px; }
+    .small { font-size: 12px; opacity: .8; margin-top: 10px; }
+    code { background: rgba(255,255,255,.08); padding: 2px 6px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Mini Front — Intent Classifier</h1>
+      <div class="small">
+        API par défaut : <code>http://localhost:8000/predict</code> (modifiable ci-dessous)
+      </div>
+
+      <div class="row" style="margin-top:14px;">
+        <input id="apiUrl" value="http://localhost:8000/predict" />
+      </div>
+
+      <div class="row">
+        <input id="text" placeholder="Écris un message… ex: Je veux m'inscrire" />
+        <button id="send">Envoyer</button>
+      </div>
+
+      <div id="chat" class="chat"></div>
+    </div>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    function addMessage(role, text, meta) {
+      const chat = $("chat");
+      const wrapper = document.createElement("div");
+      wrapper.className = "msg " + (role === "me" ? "me" : "bot");
+      wrapper.textContent = text;
+
+      if (meta) {
+        const m = document.createElement("div");
+        m.className = "meta";
+        m.innerHTML = meta;
+        wrapper.appendChild(m);
+      }
+
+      chat.appendChild(wrapper);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    async function send() {
+      const url = $("apiUrl").value.trim();
+      const text = $("text").value.trim();
+      if (!text) return;
+
+      $("send").disabled = true;
+      addMessage("me", text);
+      $("text").value = "";
+
+      try {
+        const res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text })
+        });
+
+        if (!res.ok) {
+          const errText = await res.text();
+          throw new Error(`HTTP ${res.status} — ${errText}`);
+        }
+
+        const data = await res.json();
+        const conf = (data.confidence === null || data.confidence === undefined)
+          ? "n/a"
+          : Number(data.confidence).toFixed(2);
+
+        const meta =
+          `<span class="pill">intent: ${data.intent}</span>` +
+          `<span class="pill">confidence: ${conf}</span>`;
+
+        addMessage("bot", data.response ?? "(pas de réponse)", meta);
+      } catch (e) {
+        addMessage("bot", "Erreur: impossible de joindre l’API.", `<span class="pill">${String(e.message)}</span>`);
+      } finally {
+        $("send").disabled = false;
+        $("text").focus();
+      }
+    }
+
+    $("send").addEventListener("click", send);
+    $("text").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") send();
+    });
+
+    // message de bienvenue (optionnel)
+    addMessage("bot", "Salut 👋 Envoie-moi un message et je détecte l’intention.");
+    $("text").focus();
+  </script>
+</body>
+</html>

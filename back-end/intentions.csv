@@ -1,0 +1,149 @@
+texte,intention
+bonjour,salutation
+salut,salutation
+salut toi,salutation
+coucou,salutation
+coucou toi,salutation
+hey,salutation
+hello,salutation
+bonsoir,salutation
+yo,salutation
+bjr,salutation
+bonjour à toi,salutation
+salut toi,salutation
+hé,salutation
+coucou à toi,salutation
+a plus,au_revoir
+au revoir,au_revoir
+bonne soirée,au_revoir
+ciao,au_revoir
+à bientôt,au_revoir
+à plus tard,au_revoir
+on se revoit,au_revoir
+à la prochaine,au_revoir
+bonne journée,au_revoir
+je te laisse,au_revoir
+on se dit à plus,au_revoir
+je dois y aller,au_revoir
+a plus,au_revoir
+à demain,au_revoir
+qui es-tu,presentation
+t es qui,presentation
+qui es tu,presentation
+comment tu t appelles,presentation
+parle moi de toi,presentation
+présente toi,presentation
+c est quoi ton rôle,presentation
+que fais tu,presentation
+tu sers à quoi,presentation
+tu es qui,presentation
+raconte moi qui tu es,presentation
+explique moi qui tu es,presentation
+dis moi en quoi tu peux m'aider,presentation
+parle de toi,presentation
+inscrire,inscription
+inscription,inscription
+s'inscrire,inscription
+m'inscrire,inscription
+aide moi à m inscrire,inscription
+comment m'inscrire,inscription
+je veux m’inscrire,inscription
+ouvrir un compte,inscription
+nouvel utilisateur,inscription
+comment m inscrire,inscription
+aide moi a créer un compte,inscription
+je veux créer un nouveau compte,inscription
+inscription en ligne,inscription
+je veux m'inscrire en ligne,inscription
+je veux devenir membre,inscription
+aide moi a m'inscrire pour devenir membre,inscription
+je veux me connecter,connexion
+login,connexion
+se connecter,connexion
+entrer sur le site,connexion
+aide moi a me connecter sur le site,connexion
+me connecter,connexion
+connexion,connexion
+connexion à mon compte,connexion
+aide pour la connexion à mon compte,connexion
+je veux accéder à mon compte,connexion
+connexion au site,connexion
+aide pour la connexion au site,connexion
+ouvrir ma session,connexion
+je veux me déconnecter,deconnexion
+logout,deconnexion
+quitter mon compte,deconnexion
+aide moi a quitter mon compte,deconnexion
+fermer ma session,deconnexion
+fermer le site,deconnexion
+me déconnecter,deconnexion
+je veux sortir,deconnexion
+changer mon profil,modifier_compte
+modifier mes infos,modifier_compte
+mettre à jour mon compte,modifier_compte
+actualiser mes données,modifier_compte
+mettre à jour mes données,modifier_compte
+modifier mes informations,modifier_compte
+changer mes informations,modifier_compte
+éditer mes informations,modifier_compte
+éditer mon profil,modifier_compte
+supprimer mon compte,supprimer_compte
+effacer mon profil,supprimer_compte
+fermer mon compte,supprimer_compte
+je veux supprimer mon compte,supprimer_compte
+retirer mon compte,supprimer_compte
+ajouter un service,creer_service
+proposer un service,creer_service
+créer une annonce,creer_service
+publier un service,creer_service
+mettre en ligne un service,creer_service
+supprimer mon service,supprimer_service
+retirer une annonce,supprimer_service
+supprimer un service,supprimer_service
+effacer une annonce,supprimer_service
+supprimer un service,supprimer_service
+supprimer une annonce,supprimer_service
+je veux supprimer un service,supprimer_service
+effacer mon service,supprimer_service
+retirer mon service,supprimer_service
+mes services,voir_services
+voir mes annonces,voir_services
+liste de mes services,voir_services
+tous mes services,voir_services
+consulter mes annonces,voir_services
+liste de mes services,voir_services
+voir mes services,voir_services
+afficher mes services,voir_services
+mes annonces,voir_services
+voir mes annonces,voir_services
+chercher un service,rechercher_service
+trouver une aide,rechercher_service
+recherche jardinage,rechercher_service
+je cherche un service,rechercher_service
+chercher une prestation,rechercher_service
+recherche jardinage,rechercher_service
+je cherche du jardinage,rechercher_service
+trouver un service de jardinage,rechercher_service
+chercher jardinage,rechercher_service
+je veux rechercher un service,rechercher_service
+réserver un service,reserver_service
+prendre rendez-vous,reserver_service
+je veux réserver,reserver_service
+réserver une prestation,reserver_service
+je prends rendez-vous,reserver_service
+voir catalogue,catalogue
+liste des services,catalogue
+afficher les services,catalogue
+consulter catalogue,catalogue
+catalogue complet,catalogue
+retour à l’accueil,accueil
+page d’accueil,accueil
+home,accueil
+revenir à la page principale,accueil
+accéder à l’accueil,accueil
+retour à l’accueil,accueil
+retour accueil,accueil
+revenir accueil,accueil
+aller à l'accueil,accueil
+page accueil,accueil
+
