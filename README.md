@@ -80,20 +80,6 @@ Si tout est OK, tu verras :
 
 Uvicorn running on http://0.0.0.0:8000
 
-Tester l’API sans le front
-Endpoint de santé
-GET http://localhost:8000/health
-
-Endpoint principal
-POST http://localhost:8000/predict
-
-
-Exemple avec curl :
-
-curl -X POST "http://localhost:8000/predict" \
-  -H "Content-Type: application/json" \
-  -d '{"text":"bjr"}'
-
 Utiliser le petit front de test
 
 Le dossier front-test contient un HTML très simple pour tester le chatbot.
